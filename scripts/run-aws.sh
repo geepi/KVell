@@ -19,10 +19,12 @@ make -C ${mainDir} -j
 echo "Run 1"
 ${tcmalloc} ${mainDir}/main 8 4 | tee log_ycsb_1
 
-echo "Run 2"
-${tcmalloc} ${mainDir}/main 8 4 | tee log_ycsb_2
+# echo "Run 2"
+# ${tcmalloc} ${mainDir}/main 4 4 | tee log_ycsb_2
 
 mv ${mainDir}/main.c.bak ${mainDir}/main.c
+mkdir -p /data/public/jyj/output/$(date +%F)
+cp log_ycsb_1 /data/public/jyj/output/$(date +%F)
 
 #
 #Run YCSB E
